@@ -1,9 +1,6 @@
 # Rusty-microchain
 A rusty micro chain for llms 
 
-
-Heavily inspired by MINI-chain, 
-
 Functionalities:
 - openai
 - Huggingface
