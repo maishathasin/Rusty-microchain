@@ -288,6 +288,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "exa_api_client"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "60b3bf1715090db8ff3648718a9bc58f2cc9a471da48b48f377e101ccecd5ea9"
+dependencies = [
+ "reqwest",
+ "serde",
+ "serde_json",
+ "thiserror",
+ "tokio",
+]
+
+[[package]]
 name = "fastrand"
 version = "2.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -718,6 +731,7 @@ name = "llm_rust_chain"
 version = "0.1.0"
 dependencies = [
  "async-trait",
+ "exa_api_client",
  "futures",
  "ollama-rs",
  "reqwest",
