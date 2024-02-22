@@ -573,15 +573,15 @@ impl OpenAIEmbeddings {
 
 #[async_trait]
 pub trait BackendEmbedding {
-    async fn run(&self, request: &str) -> Result<String, Box<dyn Error>>;
+    async fn run(&self, request: &str, model: &str) -> Result<String, Box<dyn Error>>;
 }
 
 #[async_trait]
 impl BackendEmbedding for OpenAIEmbeddings {
-    async fn run(&self, request: &str) -> Result<String, Box<dyn Error>> {
+    async fn run(&self, request: &str,model: &str) -> Result<String, Box<dyn Error>> {
         let embeddings_request = EmbeddingsRequest {
             input: request.to_string(),
-            model: "text-embedding-3-small".to_string(),
+            model: model.to_string(),
         };
 
         let response = self.client.post("https://api.openai.com/v1/embeddings")
@@ -602,3 +602,41 @@ impl BackendEmbedding for OpenAIEmbeddings {
         }
     }
 }
+
+
+// Ollama embeddings 
+
+
+pub struct OllamaEmbeddings {
+    ollama: Ollama,
+}
+
+impl OllamaEmbeddings {
+    pub fn new(base_url: &str, port: u16) -> Self {
+        let ollama = Ollama::new(base_url.to_string(), port);
+        OllamaEmbeddings { ollama }
+    }
+}
+
+
+
+
+#[async_trait]
+impl BackendEmbedding for OllamaEmbeddings {
+    async fn run(&self, model: &str, request: &str) -> Result<String, Box<dyn Error>> {
+        let res = self.ollama.generate_embeddings(model.to_string(), request.to_string(), None).await
+            .map_err(|e| Box::new(e) as Box<dyn Error>)?;
+
+        // Serialize the embeddings field directly
+        serde_json::to_string(&res.embeddings).map_err(|e| Box::new(e) as Box<dyn Error>)
+    }
+}
+
+
+
+// Quick tests, using cosine similarity and other similarity of the embeddings 
+
+
+
+
+
