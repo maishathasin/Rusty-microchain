@@ -274,7 +274,6 @@ pub trait Loader {
 }
 
 
-
 use std::fs;
 
 pub struct TextLoader {
@@ -521,3 +520,86 @@ impl Chainable for OllamaBackend {
 
 
 
+// evals 
+// simple json embedding disntance , and simple embeddings 
+
+
+
+// SIMPLE OPENAI embeddings 
+
+
+
+#[derive(Serialize)]
+struct EmbeddingsRequest {
+    input: String,
+    model: String,
+}
+
+#[derive(Deserialize, Serialize)]
+struct OpenAIEmbeddingsResponse {
+    object: String,
+    data: Vec<EmbeddingData>,
+    model: String,
+    usage: EmbeddingsUsage,
+}
+
+#[derive(Deserialize,Serialize)]
+struct EmbeddingData {
+    object: String,
+    index: u32,
+    embedding: Vec<f64>,
+}
+
+#[derive(Deserialize,Serialize)]
+struct EmbeddingsUsage {
+    prompt_tokens: u32,
+    total_tokens: u32,
+}
+
+pub struct OpenAIEmbeddings {
+    client: Client,
+    api_key: String,
+}
+
+impl OpenAIEmbeddings {
+    pub fn new(api_key: String) -> Self {
+        OpenAIEmbeddings { 
+            client: Client::new(), 
+            api_key,
+        }
+    }
+}
+
+
+#[async_trait]
+pub trait BackendEmbedding {
+    async fn run(&self, request: &str) -> Result<String, Box<dyn Error>>;
+    // Implement other methods if needed
+}
+
+#[async_trait]
+impl BackendEmbedding for OpenAIEmbeddings {
+    async fn run(&self, request: &str) -> Result<String, Box<dyn Error>> {
+        let embeddings_request = EmbeddingsRequest {
+            input: request.to_string(),
+            model: "text-embedding-3-small".to_string(),
+        };
+
+        let response = self.client.post("https://api.openai.com/v1/embeddings")
+            .header("Content-Type", "application/json")
+            .header("Authorization", format!("Bearer {}", self.api_key))
+            .json(&embeddings_request)
+            .send()
+            .await?;
+
+        if response.status().is_success() {
+            let embeddings_response: OpenAIEmbeddingsResponse = response.json::<OpenAIEmbeddingsResponse>().await?;
+            Ok(serde_json::to_string(&embeddings_response)?)
+        } else {
+            Err(Box::new(std::io::Error::new(
+                std::io::ErrorKind::Other,
+                format!("Error: {:?}", response.status()),
+            )))
+        }
+    }
+}
