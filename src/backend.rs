@@ -515,3 +515,9 @@ impl Chainable for OllamaBackend {
 // BACEND FOR metaphor systems 
 
 
+// MEMORY 
+
+
+
+
+
