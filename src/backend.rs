@@ -574,7 +574,6 @@ impl OpenAIEmbeddings {
 #[async_trait]
 pub trait BackendEmbedding {
     async fn run(&self, request: &str) -> Result<String, Box<dyn Error>>;
-    // Implement other methods if needed
 }
 
 #[async_trait]
