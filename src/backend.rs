@@ -634,7 +634,7 @@ impl BackendEmbedding for OllamaEmbeddings {
 
 
 
-// Quick tests, using cosine similarity and other similarity of the embeddings 
+// Quick tests  using cosine similarity and other similarity of the embeddings 
 
 
 
@@ -647,11 +647,9 @@ pub async fn compute_cosine_similarity<T: BackendEmbedding + Sync>(
     let embeddings_json1 = backend.run(text1, model).await?;
     let embeddings_json2 = backend.run(text2, model).await?;
 
-    // Parse the JSON responses to extract the embeddings
     let embeddings1 = parse_openai_embeddings(&embeddings_json1)?;
     let embeddings2 = parse_openai_embeddings(&embeddings_json2)?;
 
-    // Compute cosine similarity
     let similarity = cosine_similarity(&embeddings1, &embeddings2);
     Ok(similarity)
 }
@@ -665,3 +663,88 @@ fn parse_openai_embeddings(json_str: &str) -> Result<Vec<f64>, Box<dyn Error>> {
         .collect();
     Ok(embeddings)
 }
+
+
+
+// LLM logging 
+// a simple logging system 
+
+use std::fs::{OpenOptions, File};
+use std::io::{self, Write, Read};
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Experiment {
+    id: String,
+    prompts: Vec<String>,
+    metrics: HashMap<String, f64>, 
+}
+
+#[derive(Debug)]
+pub struct LlmLogger {
+    experiments: Vec<Experiment>,
+    file_path: String, 
+}
+
+
+impl LlmLogger {
+    pub fn new(file_path: String) -> Self {
+        LlmLogger {
+            experiments: Vec::new(),
+            file_path,
+        }
+    }
+
+    pub fn load_experiments(&mut self) -> io::Result<()> {
+        let mut file = File::open(&self.file_path)?;
+        let mut contents = String::new();
+        file.read_to_string(&mut contents)?;
+        self.experiments = serde_json::from_str(&contents)?;
+        Ok(())
+    }
+
+    pub fn save_experiments(&self) -> io::Result<()> {
+        let mut file = OpenOptions::new()
+            .write(true)
+            .create(true)
+            .truncate(true)
+            .open(&self.file_path)?;
+        file.write_all(serde_json::to_string(&self.experiments)?.as_bytes())?;
+        Ok(())
+    }
+
+    pub fn log_experiment(&mut self, id: String, prompt: String, metrics: HashMap<String, f64>) {
+        let experiment = Experiment {
+            id,
+            prompts: vec![prompt],
+            metrics,
+        };
+        self.experiments.push(experiment);
+        self.save_experiments().expect("Failed to save experiments");
+    }
+
+    //updating experiemtns 
+
+}
+
+
+impl LlmLogger {
+
+    pub fn compare_experiments(&self, id1: &str, id2: &str) {
+        let exp1 = self.experiments.iter().find(|e| e.id == id1);
+        let exp2 = self.experiments.iter().find(|e| e.id == id2);
+
+        match (exp1, exp2) {
+            (Some(exp1), Some(exp2)) => {
+                println!("Comparing Experiment {} with {}", id1, id2);
+                // implement
+            }
+            _ => println!("One or both experiment IDs not found"),
+        }
+    }
+}
+
+
+
+
+
+
