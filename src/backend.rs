@@ -13,6 +13,8 @@ use tera::{Tera, Context};
 use async_trait::async_trait;
 use serde_json::json;
 use semanticsimilarity_rs::{cosine_similarity,manhattan_distance,};
+use prettytable::{Table, row, cell};
+
 
 
 
@@ -674,15 +676,15 @@ use std::io::{self, Write, Read};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Experiment {
-    id: String,
-    prompts: Vec<String>,
-    metrics: HashMap<String, f64>, 
+    pub id: String,
+    pub prompts: Vec<String>,
+    pub metrics: HashMap<String, f64>, 
 }
 
 #[derive(Debug)]
 pub struct LlmLogger {
-    experiments: Vec<Experiment>,
-    file_path: String, 
+    pub experiments: Vec<Experiment>,
+    pub file_path: String, 
 }
 
 
@@ -720,6 +722,16 @@ impl LlmLogger {
         };
         self.experiments.push(experiment);
         self.save_experiments().expect("Failed to save experiments");
+    }
+    
+
+    pub fn display_metrics_histogram(metrics: &HashMap<String, f64>) {
+        println!("Metrics Histogram:");
+        for (metric, value) in metrics {
+            let bar_length = (*value * 10.0).round() as usize; //scale
+            let bar = "█".repeat(bar_length);
+            println!("{}: [{}]", metric, bar);
+        }
     }
 
     //updating experiemtns 

@@ -17,6 +17,8 @@ select = "0.5.0"
 ollama-rs = "0.1.6"
 exa_api_client = "0.1.2"
 semanticsimilarity_rs = "0.1.0" 
+prettytable = "0.10.0"
+
 
 
 
