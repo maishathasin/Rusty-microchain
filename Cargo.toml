@@ -18,6 +18,8 @@ ollama-rs = "0.1.6"
 exa_api_client = "0.1.2"
 semanticsimilarity_rs = "0.1.0" 
 prettytable = "0.10.0"
+text_io = "0.1.9"
+rand = "0.8.3"
 
 
 
