@@ -14,6 +14,8 @@ use async_trait::async_trait;
 use serde_json::json;
 use semanticsimilarity_rs::{cosine_similarity,manhattan_distance,};
 use prettytable::{Table, row, cell};
+use prettytable::Cell;
+use prettytable::Row;
 
 
 
@@ -671,22 +673,24 @@ fn parse_openai_embeddings(json_str: &str) -> Result<Vec<f64>, Box<dyn Error>> {
 // LLM logging 
 // a simple logging system 
 
+
 use std::fs::{OpenOptions, File};
 use std::io::{self, Write, Read};
+use rand::Rng;
+
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Experiment {
     pub id: String,
-    pub prompts: Vec<String>,
-    pub metrics: HashMap<String, f64>, 
+    pub prompt: String,
+    pub data: HashMap<String, String>,
 }
 
 #[derive(Debug)]
 pub struct LlmLogger {
     pub experiments: Vec<Experiment>,
-    pub file_path: String, 
+    pub file_path: String,
 }
-
 
 impl LlmLogger {
     pub fn new(file_path: String) -> Self {
@@ -697,10 +701,18 @@ impl LlmLogger {
     }
 
     pub fn load_experiments(&mut self) -> io::Result<()> {
-        let mut file = File::open(&self.file_path)?;
-        let mut contents = String::new();
-        file.read_to_string(&mut contents)?;
-        self.experiments = serde_json::from_str(&contents)?;
+        match File::open(&self.file_path) {
+            Ok(mut file) => {
+                let mut contents = String::new();
+                file.read_to_string(&mut contents)?;
+                self.experiments = serde_json::from_str(&contents)?;
+            }
+            Err(ref e) if e.kind() == io::ErrorKind::NotFound => {
+                // File doesn't exist, create a new file
+                File::create(&self.file_path)?;
+            }
+            Err(e) => return Err(e),
+        }
         Ok(())
     }
 
@@ -714,49 +726,62 @@ impl LlmLogger {
         Ok(())
     }
 
-    pub fn log_experiment(&mut self, id: String, prompt: String, metrics: HashMap<String, f64>) {
+    pub fn log_experiment(&mut self, prompt: String) -> String {
+        let id = Self::generate_random_id();
         let experiment = Experiment {
-            id,
-            prompts: vec![prompt],
-            metrics,
+            id: id.clone(),
+            prompt,
+            data: HashMap::new(),
         };
         self.experiments.push(experiment);
         self.save_experiments().expect("Failed to save experiments");
+        id
     }
+
+    pub fn log_data(&mut self, id: &str, column: &str, value: &str) {
+        if let Some(experiment) = self.experiments.iter_mut().find(|e| e.id == id) {
+            experiment.data.insert(column.to_string(), value.to_string());
+            self.save_experiments().expect("Failed to save experiments");
+        } else {
+            println!("Experiment ID not found");
+        }
+    }
+
+    fn generate_random_id() -> String {
+        let mut rng = rand::thread_rng();
+        let id: u32 = rng.gen();
+        id.to_string()
+    }
+
+    pub fn display_experiments_table(&self) {
+        let mut table = Table::new();
     
-
-    pub fn display_metrics_histogram(metrics: &HashMap<String, f64>) {
-        println!("Metrics Histogram:");
-        for (metric, value) in metrics {
-            let bar_length = (*value * 10.0).round() as usize; //scale
-            let bar = "█".repeat(bar_length);
-            println!("{}: [{}]", metric, bar);
-        }
-    }
-
-    //updating experiemtns 
-
-}
-
-
-impl LlmLogger {
-
-    pub fn compare_experiments(&self, id1: &str, id2: &str) {
-        let exp1 = self.experiments.iter().find(|e| e.id == id1);
-        let exp2 = self.experiments.iter().find(|e| e.id == id2);
-
-        match (exp1, exp2) {
-            (Some(exp1), Some(exp2)) => {
-                println!("Comparing Experiment {} with {}", id1, id2);
-                // implement
+        let mut keys: Vec<String> = self.experiments
+            .iter()
+            .flat_map(|exp| exp.data.keys().cloned())
+            .collect();
+        keys.sort();
+        keys.dedup();
+    
+        let mut header = vec!["ID", "Prompt"];
+        header.extend(keys.iter().map(|key| key.as_str())); 
+        table.add_row(Row::new(header.iter().map(|&h| Cell::new(h)).collect()));
+    
+        for exp in &self.experiments {
+            let mut row_cells = vec![
+                Cell::new(&exp.id.to_string()),
+                Cell::new(&exp.prompt),
+            ];
+            for key in &keys {
+                let value = exp.data.get(key).cloned().unwrap_or_else(String::new);
+                row_cells.push(Cell::new(&value));
             }
-            _ => println!("One or both experiment IDs not found"),
+            table.add_row(Row::new(row_cells));
         }
+    
+        table.printstd();
     }
+
+    //Save the table and the output in cache 
+    
 }
-
-
-
-
-
-
