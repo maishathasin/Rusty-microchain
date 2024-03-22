@@ -20,8 +20,7 @@ semanticsimilarity_rs = "0.1.0"
 prettytable = "0.10.0"
 text_io = "0.1.9"
 rand = "0.8.3"
-
-
+pdf-extract = "0.7.4"
 
 
 
