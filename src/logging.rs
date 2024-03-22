@@ -39,7 +39,6 @@ impl LlmLogger {
                 self.experiments = serde_json::from_str(&contents)?;
             }
             Err(ref e) if e.kind() == io::ErrorKind::NotFound => {
-                // File doesn't exist, create a new file
                 File::create(&self.file_path)?;
             }
             Err(e) => return Err(e),
