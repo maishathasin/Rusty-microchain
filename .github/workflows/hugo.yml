@@ -44,18 +44,6 @@ jobs:
 
 
       
-      # List the root directory of the repository
-      - name: List root directory contents
-        run: ls -alh
-
-      # Print environment variables
-      - name: Print environment variables
-        run: env
-
-      # Checkout your repository and list the contents of the docs directory
-      - name: List docs directory contents
-        run: ls -alh docs
-        
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
