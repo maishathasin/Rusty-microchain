@@ -57,7 +57,7 @@ jobs:
         working-directory: ./docs
 
 
-         - name: Archive artifact
+      - name: Archive artifact
         run: |
           echo ::group::Archive artifact
           tar \
