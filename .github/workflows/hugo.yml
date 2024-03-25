@@ -53,7 +53,7 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "https://maishathasin.github.io/Rusty-microchain/docs"
         working-directory: ./docs
 
 
@@ -62,18 +62,18 @@ jobs:
           echo ::group::Archive artifact
           tar \
             --dereference --hard-dereference \
-            --directory "${{ github.workspace }}/docs/public" \
+            --directory "${{ github.workspace }}/public" \
             -cvf "${RUNNER_TEMP}/artifact.tar" \
             --exclude=.git \
             --exclude=.github \
             .
           echo ::endgroup::
         env:
-          INPUT_PATH: ./docs/public
+          INPUT_PATH: ./public
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs/public
+          path: ./public
 
   # Deployment job
   deploy:
