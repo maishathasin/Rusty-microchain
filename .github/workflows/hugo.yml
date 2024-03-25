@@ -41,9 +41,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-
-
-      
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
@@ -58,7 +55,9 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
         working-directory: ./docs
-        - name: Archive artifact
+
+
+         - name: Archive artifact
         run: |
           echo ::group::Archive artifact
           tar \
@@ -71,7 +70,6 @@ jobs:
           echo ::endgroup::
         env:
           INPUT_PATH: ./docs/public
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
