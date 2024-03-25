@@ -1,16 +1,9 @@
 # Rusty-microchain
 A rusty micro chain for llms 
 
-
-Heavily inspired by MINI-chain, 
-
 Functionalities:
-- openai
-- Huggingface
-- Google search
-- Bash script
-- Prompt template tero ?
-- Vertex AI
+
+- Prompt template tera ?
 - Dataloaders, splitters etc
 - sequential pipelines 
 - memory
