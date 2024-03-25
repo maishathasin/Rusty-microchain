@@ -62,7 +62,7 @@ jobs:
           echo ::group::Archive artifact
           tar \
             --dereference --hard-dereference \
-            --directory "${{ github.workspace }}/public" \
+            --directory "https://maishathasin.github.io/Rusty-microchain/docs/public" \
             -cvf "${RUNNER_TEMP}/artifact.tar" \
             --exclude=.git \
             --exclude=.github \
