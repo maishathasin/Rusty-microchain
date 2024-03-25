@@ -3,7 +3,6 @@ name = "llm_rust_chain"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 tokio = { version = "1.0", features = ["full"] }
@@ -15,6 +14,13 @@ futures = "0.3"
 serpapi-search-rust = "0.1.0"
 tera = "1.10.0"
 select = "0.5.0"
+ollama-rs = "0.1.6"
+exa_api_client = "0.1.2"
+semanticsimilarity_rs = "0.1.0" 
+prettytable = "0.10.0"
+text_io = "0.1.9"
+rand = "0.8.3"
+pdf-extract = "0.7.4"
 
 
 
