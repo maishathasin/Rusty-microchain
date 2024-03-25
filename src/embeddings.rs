@@ -1,4 +1,11 @@
 
+use serde::{Serialize, Deserialize};
+use async_trait::async_trait;
+use ollama_rs::{Ollama};
+use ollama_rs::generation::completion::request::GenerationRequest;
+use reqwest::Client;
+use std::error::Error;
+
 
 #[derive(Serialize)]
 struct EmbeddingsRequest {
