@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorials on My Docs</title>
+    <link>//localhost:1313/docs/tutorials/</link>
+    <description>Recent content in Tutorials on My Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2020-2024 Hyas</copyright>
+    <lastBuildDate>Thu, 07 Sep 2023 16:13:18 +0200</lastBuildDate>
+    <atom:link href="//localhost:1313/docs/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tutorial</title>
+      <link>//localhost:1313/docs/tutorials/tutorial/</link>
+      <pubDate>Thu, 07 Sep 2023 16:13:18 +0200</pubDate>
+      <guid>//localhost:1313/docs/tutorials/tutorial/</guid>
+      <description>Reference pages are ideal for outlining how things work in terse and clear terms. Less concerned with telling a story or addressing a specific use case, they should give a comprehensive outline of what your documenting.</description>
+    </item>
+  </channel>
+</rss>

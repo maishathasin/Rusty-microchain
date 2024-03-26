@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Welcome to Doks on My Docs</title>
+    <title>Welcome to Rust Microchain on My Docs</title>
     <link>//localhost:1313/</link>
-    <description>Recent content in Welcome to Doks on My Docs</description>
+    <description>Recent content in Welcome to Rust Microchain on My Docs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright (c) 2020-2024 Hyas</copyright>
@@ -17,10 +17,31 @@
       <description>You can use blog posts for announcing product updates and features.</description>
     </item>
     <item>
-      <title>Example Guide</title>
-      <link>//localhost:1313/docs/guides/example-guide/</link>
+      <title>Features</title>
+      <link>//localhost:1313/docs/guides/features/</link>
       <pubDate>Thu, 07 Sep 2023 16:04:48 +0200</pubDate>
-      <guid>//localhost:1313/docs/guides/example-guide/</guid>
+      <guid>//localhost:1313/docs/guides/features/</guid>
+      <description>Rust microchain has all the features needed to create an LLM application from the ground up!&#xA;Overview Search Google Search (Serpson API): Enables integration with Google search, providing comprehensive search capabilities within your application.</description>
+    </item>
+    <item>
+      <title>installation</title>
+      <link>//localhost:1313/docs/guides/installation/</link>
+      <pubDate>Thu, 07 Sep 2023 16:04:48 +0200</pubDate>
+      <guid>//localhost:1313/docs/guides/installation/</guid>
+      <description>Guides lead a user through a specific task they want to accomplish, often with a sequence of steps. Writing a good guide requires thinking about what your users are trying to do.</description>
+    </item>
+    <item>
+      <title>Logger </title>
+      <link>//localhost:1313/docs/guides/logger/</link>
+      <pubDate>Thu, 07 Sep 2023 16:04:48 +0200</pubDate>
+      <guid>//localhost:1313/docs/guides/logger/</guid>
+      <description>We provide a simple logger to log your experiments so you can easily view and compare prompts, metrics, templates etc. Each experiment is saved into one json file with a unique ID and you can use this view your runs, you can log any data you like!</description>
+    </item>
+    <item>
+      <title>Quick Start</title>
+      <link>//localhost:1313/docs/guides/quick-start/</link>
+      <pubDate>Thu, 07 Sep 2023 16:04:48 +0200</pubDate>
+      <guid>//localhost:1313/docs/guides/quick-start/</guid>
       <description>Guides lead a user through a specific task they want to accomplish, often with a sequence of steps. Writing a good guide requires thinking about what your users are trying to do.</description>
     </item>
     <item>
@@ -28,6 +49,13 @@
       <link>//localhost:1313/docs/reference/example-reference/</link>
       <pubDate>Thu, 07 Sep 2023 16:13:18 +0200</pubDate>
       <guid>//localhost:1313/docs/reference/example-reference/</guid>
+      <description>Reference pages are ideal for outlining how things work in terse and clear terms. Less concerned with telling a story or addressing a specific use case, they should give a comprehensive outline of what your documenting.</description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>//localhost:1313/docs/tutorials/tutorial/</link>
+      <pubDate>Thu, 07 Sep 2023 16:13:18 +0200</pubDate>
+      <guid>//localhost:1313/docs/tutorials/tutorial/</guid>
       <description>Reference pages are ideal for outlining how things work in terse and clear terms. Less concerned with telling a story or addressing a specific use case, they should give a comprehensive outline of what your documenting.</description>
     </item>
     <item>
