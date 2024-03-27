@@ -87,7 +87,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-          with:
+        with:
     # Make sure this path points to the directory where Hugo outputs the built site.
     # If Hugo outputs to `docs/public`, you might just need `public` here, depending on your GitHub Pages configuration.
-            path: ./docs/public
+          path: ./docs/public
