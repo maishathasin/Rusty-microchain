@@ -62,7 +62,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-            hugo --minify --configDir docs/config/_default
+            hugo --minify --configDir ./docs/config/_default
         working-directory: ./docs
 
       - name: Upload artifact
