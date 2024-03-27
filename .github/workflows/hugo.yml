@@ -47,6 +47,15 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+
+
+      - name: List configuration directory
+        run: ls -la ./
+        working-directory: ./
+
+      - name: List configuration directory
+        run: ls -la ./docs/config/_default
+        working-directory: ./
       - name: Build with Hugo
         env:
 
