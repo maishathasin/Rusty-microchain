@@ -56,13 +56,19 @@ jobs:
       - name: List configuration directory
         run: ls -la ./docs/config/_default
         working-directory: ./
+
+      - name: Debug current directory
+        run: |
+          pwd
+          ls -la
+        working-directory: ./docs
       - name: Build with Hugo
         env:
 
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
-        run: |
-            hugo --minify --configDir ./docs/config/_default
+        run:  hugo --minify
+           
         working-directory: ./docs
 
       - name: Upload artifact
