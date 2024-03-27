@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Welcome to Rust Microchain on My Docs</title>
-    <link>//localhost:1313/</link>
+    <link>/</link>
     <description>Recent content in Welcome to Rust Microchain on My Docs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright (c) 2020-2024 Hyas</copyright>
     <lastBuildDate>Thu, 07 Sep 2023 17:19:07 +0200</lastBuildDate>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Example Post</title>
-      <link>//localhost:1313/blog/example-post/</link>
+      <link>/blog/example-post/</link>
       <pubDate>Thu, 07 Sep 2023 16:27:22 +0200</pubDate>
-      <guid>//localhost:1313/blog/example-post/</guid>
+      <guid>/blog/example-post/</guid>
       <description>You can use blog posts for announcing product updates and features.</description>
     </item>
     <item>
       <title>Features</title>
-      <link>//localhost:1313/docs/guides/features/</link>
+      <link>/docs/guides/features/</link>
       <pubDate>Thu, 07 Sep 2023 16:04:48 +0200</pubDate>
-      <guid>//localhost:1313/docs/guides/features/</guid>
+      <guid>/docs/guides/features/</guid>
       <description>Rust microchain has all the features needed to create an LLM application from the ground up!&#xA;Overview Search Google Search (Serpson API): Enables integration with Google search, providing comprehensive search capabilities within your application.</description>
     </item>
     <item>
       <title>installation</title>
-      <link>//localhost:1313/docs/guides/installation/</link>
+      <link>/docs/guides/installation/</link>
       <pubDate>Thu, 07 Sep 2023 16:04:48 +0200</pubDate>
-      <guid>//localhost:1313/docs/guides/installation/</guid>
+      <guid>/docs/guides/installation/</guid>
       <description>Guides lead a user through a specific task they want to accomplish, often with a sequence of steps. Writing a good guide requires thinking about what your users are trying to do.</description>
     </item>
     <item>
       <title>Logger </title>
-      <link>//localhost:1313/docs/guides/logger/</link>
+      <link>/docs/guides/logger/</link>
       <pubDate>Thu, 07 Sep 2023 16:04:48 +0200</pubDate>
-      <guid>//localhost:1313/docs/guides/logger/</guid>
+      <guid>/docs/guides/logger/</guid>
       <description>We provide a simple logger to log your experiments so you can easily view and compare prompts, metrics, templates etc. Each experiment is saved into one json file with a unique ID and you can use this view your runs, you can log any data you like!</description>
     </item>
     <item>
       <title>Quick Start</title>
-      <link>//localhost:1313/docs/guides/quick-start/</link>
+      <link>/docs/guides/quick-start/</link>
       <pubDate>Thu, 07 Sep 2023 16:04:48 +0200</pubDate>
-      <guid>//localhost:1313/docs/guides/quick-start/</guid>
+      <guid>/docs/guides/quick-start/</guid>
       <description>Guides lead a user through a specific task they want to accomplish, often with a sequence of steps. Writing a good guide requires thinking about what your users are trying to do.</description>
     </item>
     <item>
       <title>Example Reference</title>
-      <link>//localhost:1313/docs/reference/example-reference/</link>
+      <link>/docs/reference/example-reference/</link>
       <pubDate>Thu, 07 Sep 2023 16:13:18 +0200</pubDate>
-      <guid>//localhost:1313/docs/reference/example-reference/</guid>
+      <guid>/docs/reference/example-reference/</guid>
       <description>Reference pages are ideal for outlining how things work in terse and clear terms. Less concerned with telling a story or addressing a specific use case, they should give a comprehensive outline of what your documenting.</description>
     </item>
     <item>
       <title>Tutorial</title>
-      <link>//localhost:1313/docs/tutorials/tutorial/</link>
+      <link>/docs/tutorials/tutorial/</link>
       <pubDate>Thu, 07 Sep 2023 16:13:18 +0200</pubDate>
-      <guid>//localhost:1313/docs/tutorials/tutorial/</guid>
+      <guid>/docs/tutorials/tutorial/</guid>
       <description>Reference pages are ideal for outlining how things work in terse and clear terms. Less concerned with telling a story or addressing a specific use case, they should give a comprehensive outline of what your documenting.</description>
     </item>
     <item>
       <title>Privacy Policy</title>
-      <link>//localhost:1313/privacy/</link>
+      <link>/privacy/</link>
       <pubDate>Thu, 07 Sep 2023 17:19:07 +0200</pubDate>
-      <guid>//localhost:1313/privacy/</guid>
+      <guid>/privacy/</guid>
       <description></description>
     </item>
   </channel>

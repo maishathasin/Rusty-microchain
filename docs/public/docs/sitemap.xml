@@ -2,57 +2,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>//localhost:1313/docs/guides/</loc>
+      <loc>/docs/guides/</loc>
       <lastmod>2023-09-07T16:06:50+02:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
     
     <url>
-      <loc>//localhost:1313/docs/reference/</loc>
+      <loc>/docs/reference/</loc>
       <lastmod>2023-09-07T16:12:37+02:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
     
     <url>
-      <loc>//localhost:1313/docs/tutorials/</loc>
+      <loc>/docs/tutorials/</loc>
       <lastmod>2023-09-07T16:12:37+02:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
     <url>
-        <loc>//localhost:1313/docs/guides/features/</loc>
+        <loc>/docs/guides/features/</loc>
         <lastmod>2023-09-07T16:04:48+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
       </url>
       <url>
-        <loc>//localhost:1313/docs/guides/installation/</loc>
+        <loc>/docs/guides/installation/</loc>
         <lastmod>2023-09-07T16:04:48+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
       </url>
       <url>
-        <loc>//localhost:1313/docs/guides/logger/</loc>
+        <loc>/docs/guides/logger/</loc>
         <lastmod>2023-09-07T16:04:48+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
       </url>
       <url>
-        <loc>//localhost:1313/docs/guides/quick-start/</loc>
+        <loc>/docs/guides/quick-start/</loc>
         <lastmod>2023-09-07T16:04:48+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
       </url>
       <url>
-        <loc>//localhost:1313/docs/reference/example-reference/</loc>
+        <loc>/docs/reference/example-reference/</loc>
         <lastmod>2023-09-07T16:13:18+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
       </url>
       <url>
-        <loc>//localhost:1313/docs/tutorials/tutorial/</loc>
+        <loc>/docs/tutorials/tutorial/</loc>
         <lastmod>2023-09-07T16:13:18+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
