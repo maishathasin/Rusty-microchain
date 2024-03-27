@@ -14,13 +14,14 @@
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
+    
     <url>
-        <loc>//localhost:1313/docs/guides/example-guide222/</loc>
-        <lastmod>2023-09-07T16:04:48+02:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-      </url>
-      <url>
+      <loc>//localhost:1313/docs/tutorials/</loc>
+      <lastmod>2023-09-07T16:12:37+02:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    <url>
         <loc>//localhost:1313/docs/guides/features/</loc>
         <lastmod>2023-09-07T16:04:48+02:00</lastmod>
         <changefreq>monthly</changefreq>
@@ -33,6 +34,12 @@
         <priority>0.5</priority>
       </url>
       <url>
+        <loc>//localhost:1313/docs/guides/logger/</loc>
+        <lastmod>2023-09-07T16:04:48+02:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+      </url>
+      <url>
         <loc>//localhost:1313/docs/guides/quick-start/</loc>
         <lastmod>2023-09-07T16:04:48+02:00</lastmod>
         <changefreq>monthly</changefreq>
@@ -40,6 +47,12 @@
       </url>
       <url>
         <loc>//localhost:1313/docs/reference/example-reference/</loc>
+        <lastmod>2023-09-07T16:13:18+02:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+      </url>
+      <url>
+        <loc>//localhost:1313/docs/tutorials/tutorial/</loc>
         <lastmod>2023-09-07T16:13:18+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
